@@ -1,0 +1,25 @@
+---
+  - name: package install.
+    action: yum name=$item state=present
+    with_items:
+    - rpm-build
+    - openssl-devel
+    - rpmdevtools
+
+  - name: epel repo install.
+    yum: name=http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+  - name: epel repo package install.
+    yum: name=$item state=present enablerepo=epel
+    with_items:
+      - tmux
+
+  - name: make build dir.
+    file: dest=$item owner={{user}} group={{user}} mode=0775 recurse=yes state=directory
+    with_items:
+     - ${rpm_dir}
+     - ${build_rpm_dir}
+     - ${srpms_rpm_dir}
+     - ${specs_rpm_dir}
+     - ${sources_rpm_dir}
+     - ${rpms_rpm_dir}

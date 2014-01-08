@@ -1,0 +1,8 @@
+---
+home_dir: /home/mukku
+rpm_dir: ${home_dir}/rpm
+build_rpm_dir: ${rpm_dir}/BUILD
+srpms_rpm_dir: ${rpm_dir}/SRPMS
+specs_rpm_dir: ${rpm_dir}/SPECS
+sources_rpm_dir: ${rpm_dir}/SOURCES
+rpms_rpm_dir: ${rpm_dir}/RPMS

@@ -1,0 +1,4 @@
+---
+the_silver_searcher:
+- dir: /home/mukku/repos/the_silver_searcher
+  repo: https://github.com/ggreer/the_silver_searcher.git

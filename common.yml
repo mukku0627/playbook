@@ -1,0 +1,9 @@
+---
+- hosts : all
+  roles:
+    - common
+    - build
+  user: mukku
+  sudo: true
+  vars:
+    user: mukku

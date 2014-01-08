@@ -1,0 +1,28 @@
+---
+  - name: yum groupinstall.
+    command: yum -y groupinstall "Development Tools"
+  
+  - name: package install.
+    action: yum name=$item state=present
+    with_items:
+      - git
+      - zsh
+      - dstat
+      - pcre-devel
+      - xz-devel
+      - zlib-devel
+
+  - name: ag git clone.
+    git: repo={{item.repo}} dest={{item.dir}}
+    with_items: ${the_silver_searcher}
+    tags: ag
+  
+  - name: ag build.
+    command: ./build.sh chdir={{item.dir}}
+    with_items: ${the_silver_searcher}
+    tags: ag
+  
+  - name: ag install command.
+    command: make install chdir={{item.dir}}
+    with_items: ${the_silver_searcher}
+    tags: ag
