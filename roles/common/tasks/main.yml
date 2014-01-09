@@ -11,6 +11,16 @@
       - pcre-devel
       - xz-devel
       - zlib-devel
+      - vim
+      - dstat
+
+  - name: epel repo install.
+    yum: name=http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+  - name: epel repo package install.
+    yum: name=$item state=present enablerepo=epel
+    with_items:
+      - tmux
 
   - name: ag git clone.
     git: repo={{item.repo}} dest={{item.dir}}
