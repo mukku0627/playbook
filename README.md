@@ -2,4 +2,7 @@ playlist
 ========
 
 ansible playbook
-laskdjflasjdf
+
+## role
+* common
+* build
