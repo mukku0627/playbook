@@ -1,4 +1,4 @@
-playlist
+playbook
 ========
 
 ansible playbook
